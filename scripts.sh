@@ -51,7 +51,7 @@ done
 rm -rf folder_name
 
 
-# 
+# loop through directories, zip all folders in those, and then delete them after zipping
 for d in */ ; do
   for x in "$d"* ; do
       zip -r -X "$x".zip "$x" -x "*.DS_Store"
