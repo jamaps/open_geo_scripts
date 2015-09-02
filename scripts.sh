@@ -44,6 +44,7 @@ zip -r folder.zip folder -x "*.DS_Store"
 # zipping all folders in a directory
 for d in *; do
     zip -r -X "$d".zip "$d" -x "*.DS_Store"
+    rm -rf "$d"
 done
 
 
