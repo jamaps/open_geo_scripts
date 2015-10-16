@@ -1,5 +1,6 @@
 ############################
 # shell script for batch renaming, reprojecting, and converting to GTiff
+# works in GDAL version 1.11
 ############################
 
 # start runtime
