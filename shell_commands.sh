@@ -1,7 +1,4 @@
-#######################################################
-# shell scripts that make my life a little bit easier #
-#######################################################
-# last updated by Jeff Allen on August 24, 2015
+# simple shell commands that make my life a little bit easier #
 
 
 # looping through directories:
