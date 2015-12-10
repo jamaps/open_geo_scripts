@@ -44,6 +44,12 @@ for d in *; do
     rm -rf "$d"
 done
 
+# unzipping
+for d in *; do
+    echo $d
+    unzip $d
+done
+
 
 # deleting directories
 rm -rf folder_name
