@@ -1,4 +1,4 @@
-mkdir out
+mkdir "out"
 for i in *.shp
 do
 	# print info:
