@@ -8,6 +8,6 @@ do
 	f="${i%.*}"
 	echo "$f"
 	# convert to shp into output folder
-	ogr2ogr -f "ESRI Shapefile" shp_outs/"$f".tab "$i"
+	ogr2ogr -f "ESRI Shapefile" shp_outs/"$f" "$i"
   echo "----------------------------"
 done
