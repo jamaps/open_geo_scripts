@@ -3,7 +3,7 @@ from osgeo import ogr
 
 ws = r"PATH"
 
-list = []
+ref_list_check = []
 x = "filler"
 count = 0
 fail_list = []
@@ -28,10 +28,18 @@ for subdir, dirs, files in os.walk(ws):
                 spatialRef = layer.GetSpatialRef()
                 print spatialRef
                 if x != str(spatialRef):
-                    list.append(1)
+                    ref_list_check.append(1)
                 x = str(spatialRef)
                 count = count + 1
 
+print "total shps checked:"
 print count
-print list
-print fail_list
+print "_"
+if fail_list != []:
+    print "failed"
+    print fail_list
+if ref_list_check != [1]:
+    print "there are multiple spatial refs"
+else:
+    print "all have the same spatial ref:"
+    print spatialRef
