@@ -4,6 +4,8 @@ from shutil import copyfile
 in_dir = r"PATH"
 out_dir =  r"PATH"
 
+slash = "\\"
+
 s = d = x = p =0
 
 for root, dirs, files in os.walk(in_dir):
