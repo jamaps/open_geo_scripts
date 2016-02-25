@@ -1,3 +1,5 @@
+# takes all shps in a directory tree and copies them into a single folder
+
 import os
 from shutil import copyfile
 
@@ -36,3 +38,4 @@ for root, dirs, files in os.walk(in_dir):
 print s
 print d
 print x
+print p
