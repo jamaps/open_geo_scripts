@@ -2,4 +2,4 @@
 
 A few geoprocessing scripts using open libraries like GDAL/OGR
 
-- Jeff Allen
+
