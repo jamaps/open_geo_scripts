@@ -1,3 +1,5 @@
-### GDAL & OGR Scripts
+### Open Geo Scripts
 
-A few short spatial inquiry and geoprocessing scripts using GDAL and OGR libraries
+A few geoprocessing scripts using open libraries like GDAL/OGR
+
+- Jeff Allen
