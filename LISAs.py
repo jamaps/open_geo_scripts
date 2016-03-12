@@ -1,3 +1,4 @@
+# writes LISAs (Local Moran's I and Getis Ord) to csv table for each field in a shapefile
 
 import os
 import pysal
