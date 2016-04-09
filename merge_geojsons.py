@@ -4,8 +4,6 @@
 import os
 import time
 import json
-from subprocess import call
-from pprint import pprint
 
 start_time = time.time()
 
@@ -35,5 +33,5 @@ merged_geojson = {
 with open(out_folder + slash + "merge_test.geojson", 'w') as fp:
     json.dump(merged_geojson, fp)
 
-print("--------------"
+print("--------------")
 print("%s seconds" % (time.time() - start_time))
