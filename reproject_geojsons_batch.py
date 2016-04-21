@@ -13,7 +13,7 @@ slash = "//"
 for root, dirs, files in os.walk(geojsons_in_folder):
     for gj in files:
         if gj.endswith(".geojson"):
-            print("gj")
+            print(gj)
             call(["ogr2ogr", "-f", "GeoJSON", geojsons_out_folder + slash + "nad83_%s" %gj,"-t_srs", "EPSG:4269", geojsons_in_folder + slash + gj])
 
 print("--- %s seconds ---" % (time.time() - start_time))
