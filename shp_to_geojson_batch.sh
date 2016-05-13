@@ -1,4 +1,4 @@
-
+# batch converts Shapefiles to geojsons
 mkdir "geojsons"
 for i in *.shp
 do
