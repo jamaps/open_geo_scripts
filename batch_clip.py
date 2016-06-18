@@ -7,8 +7,8 @@ import os
 shp_folder = "nrn_rrn_on_shp_en"
 clip_poly = "clip_bound.shp"
 
-#output dir name
-# os.mkdir("clipped")
+# output dir
+os.mkdir("clipped")
 
 c = 0
 for subdir, dirs, files in os.walk(shp_folder):
