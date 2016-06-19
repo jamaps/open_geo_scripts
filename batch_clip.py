@@ -13,8 +13,8 @@ os.mkdir("clipped")
 c = 0
 for subdir, dirs, files in os.walk(shp_folder):
 	for file in files:
- 	if file.endswith(('.shp')):
-		print file
-		call(["ogr2ogr", "-clipsrc", clip_poly, "clipped/" + file, shp_folder + '/' + file])
-		c += 1
+	 	if file.endswith(('.shp')):
+			print file
+			call(["ogr2ogr", "-clipsrc", clip_poly, "clipped/" + file, shp_folder + '/' + file])
+			c += 1
 print c
