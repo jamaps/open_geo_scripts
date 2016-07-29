@@ -1,4 +1,4 @@
-# merging multiple geojsons into one file
+# merging multiple geojsons into one file without any fancy libraries
 # only tested with same geom type (eg point) and properties fields
 
 import os
