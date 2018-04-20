@@ -5,6 +5,7 @@ import csv
 # centre point
 point = [-79.1857,43.78423]
 
+# extent based buffer for subseting (be careful about distortion!)
 ymax = point[1] + 1
 ymin = point[1] - 1
 xmax = point[0] + 1
