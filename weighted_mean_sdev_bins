@@ -1,0 +1,79 @@
+# vanilla python for generating weighted means, standard deviation, and percen to of data per bin
+
+import csv
+from math import sqrt
+
+# input csvs
+in_csv = "Ai_compare_day/Ai_day_pop.csv"
+out_csv = "Ai_compare_day/summary_2.csv"
+pop_csv = "da_demo_sask.csv"
+
+# rows for output - this case for days of the week
+r1 = "Monday"
+r2 = "Tuesday"
+r3 = "Wednesday"
+r4 = "Thursday"
+r5 = "Friday"
+r6 = "Saturday"
+r7 = "Sunday"
+rows = [r1,r2,r3,r4,r5,r6,r7]
+
+# bins
+b1 = [0,10]
+b2 = [10,20]
+b3 = [20,30]
+b4 = [30,999]
+
+
+out_table = [["m","Mean","Stdev","0-10mins","10-20mins","20-30mins","30+mins"]]
+
+# loop over each row we want in the output table
+for row in rows:
+
+    # computes the weighted mean
+    mean = []
+    popsum = 0
+    with open(in_csv, "r") as csvin:
+        das = csv.DictReader(csvin)
+        for da in das:
+            popsum = popsum + float(da["pop"])
+            mean.append(float(da[row]) * float(da["pop"]))
+        mean = sum(mean) / popsum
+
+    # computes weighted SDev and appends bins
+    sumsq = 0
+    b1sum = 0
+    b2sum = 0
+    b3sum = 0
+    b4sum = 0
+    with open(in_csv, "r") as csvin:
+        das = csv.DictReader(csvin)
+        for da in das:
+            # SDev
+            sumsq = sumsq + float(da["pop"]) * (float(da[row]) - float(mean)) ** 2
+            #
+            if float(da[row]) > b1[0] and float(da[row]) <= b1[1]:
+                b1sum = b1sum + float(da["pop"])
+            elif float(da[row]) > b2[0] and float(da[row]) <= b2[1]:
+                b2sum = b2sum + float(da["pop"])
+            elif float(da[row]) > b3[0] and float(da[row]) <= b3[1]:
+                b3sum = b3sum + float(da["pop"])
+            elif float(da[row]) > b4[0] and float(da[row]) <= b4[1]:
+                b4sum = b4sum + float(da["pop"])
+            else:
+                print "meow", row
+
+        sdev = sqrt(sumsq / popsum)
+
+    b1per = b1sum / popsum
+    b2per = b2sum / popsum
+    b3per = b3sum / popsum
+    b4per = b4sum / popsum
+
+    out_table.append([row, mean, sdev, b1per, b2per, b3per, b4per])
+
+# write the output to file
+with open(out_csv, 'w') as csvfile:
+    writer = csv.writer(csvfile)
+    for row in out_table:
+        writer.writerow(row)
