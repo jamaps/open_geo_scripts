@@ -1,0 +1,14 @@
+import pandas as pd
+import numpy as np
+import pyproj
+
+def convert_lonlat_to_utm(df_row):
+
+    utm = pyproj.Proj(init='epsg:32611')
+    wgs84 = pyproj.Proj(init='epsg:4326')
+    utm_x,utm_y = pyproj.transform(wgs84,utm, df_row["lon"], df_row["lat"])
+    return pd.Series({'utm_x':utm_x,'utm_y':utm_y})
+
+coordinates = pd.read_csv("city_coords_2.csv")
+
+coordinates[['utm_x','utm_y']] = coordinates.apply(convert_lonlat_to_utm,axis=1)
