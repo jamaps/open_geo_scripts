@@ -1,0 +1,8 @@
+import topojson as tp
+import geopandas as gpd
+
+df = gpd.read_file("file_name.geojson")
+
+t = tp.Topology(df, prequantize=False, toposimplify=0.0001).to_gdf()
+
+t.to_file("file_name_simplified.geojson", driver="GeoJSON")  
