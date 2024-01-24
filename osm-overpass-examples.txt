@@ -1,0 +1,6 @@
+[out:json][timeout:200];
+rel(324211); map_to_area->.bnd;
+( way[highway~"motorway|motorway_link|primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|trunk|trunk_link"](area.bnd);
+);
+(._;>;);
+out body qt;
